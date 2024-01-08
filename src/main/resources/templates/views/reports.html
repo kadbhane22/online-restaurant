@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+ <style >
+.container {    
+  border-radius: 5px;    
+  background-color: #f2f2f2;    
+  padding: 20px;    
+}  
+  
+  table{border-collapse: collapse;
+  }
+  th, td {
+  padding: 15px;
+  text-align: left;
+}
+tr:hover {background-color: coral;}
+  </style>  
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Customer Wise Order Details</h1>
+<form action="/search"  method="post">
+        <div alight="left">
+            <tr>
+                <label class="form-label" >Employee ID</label>
+                <td>
+                    <input type="text" name="username" class="form-control" placeholder="Customer Name" />
+                </td>
+            </tr>
+        </div>  
+ 
+            <br>
+            <tr>
+            <td colspan="2"><button type="submit" class="btn btn-info">Search</button> </td>
+            </tr>
+              </form>
+            <br>
+            
+            
+            
+    <div class="container">
+        <div class="row">
+            <h1 >Order Details Customerwise</h1>
+
+     <table width="100%" >
+			
+				<thead>
+					<tr>
+					<th>OrderId</th>
+					<th>user</th>
+					<th>Order</th>
+					<th>time</th>
+					</tr>
+				</thead>
+				<tbody>
+							<tr th:each="ConfirmOrders:${ConfirmOrders}">
+							<td th:text="${ConfirmOrders.orderid}" />
+							<td th:text="${ConfirmOrders.username}" />
+							<td th:text="${ConfirmOrders.orderList}" />
+							<td th:text="${ConfirmOrders.date}" />
+					</tr>
+				</tbody>
+				
+			</table>
+        </div>
+
+    </div>
+<form action="/byDate" method="post">
+        <div alight="left">
+            <tr>
+                <label class="form-label" >Datewise Orders</label>
+                <td>
+                    <input type="text" name="*{date}" class="form-control" placeholder="Date" />
+                </td>
+            </tr>
+        </div>  
+ 
+            <br>
+            <tr>
+            <td colspan="2"><button type="submit" class="btn btn-info">Search</button> </td>
+            </tr>
+              </form>
+                 <div class="container">
+        <div class="row">
+            <h1 >Order Details DateWise</h1>
+
+            <table class="table">
+                <thead>
+          
+                </thead>
+                <tbody>
+                <td id="Order" th:text="${byDate}"></td>
+  
+                </tbody>
+            </table>
+        </div> 
+        
+        
+        		 -->
+</body>
+</html>

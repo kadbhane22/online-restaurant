@@ -1,0 +1,55 @@
+customer - class
+
+customerId.
+customerFname.
+customerLname.
+customerEmail.
+customerPhone.
+
+
+Address -class
+City.
+pin.
+
+
+loombook 
+
+-------------------------------------------------------------------------------
+
+
+Food - Interface
+
+Food Catg. -class
+	Catg id -primary
+	Catg Name
+Food Item. -class
+	Item ID -forigen
+	Food Name
+	
+
+class - Veg,
+ 
+Non-Veg, Juices, Bakery, Italian, Continental 
+
+-------------------------------------------------------------------------------
+
+Order -class
+
+show    -method
+
+cancle	-method
+	
+-------------------------------------------------------------------------------
+
+OwnRecipe -class
+
+------------------------------------------------------------------------------
+
+Feedback/Review -class
+
+-------------------------------------------------------------------------------
+
+Admin -class
+
+
+

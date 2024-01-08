@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style >
+.container {    
+  border-radius: 5px;    
+  background-color: #f2f2f2;    
+  padding: 20px;    
+}  
+  
+  table{border-collapse: collapse;
+  }
+  th, td {
+  padding: 15px;
+  text-align: left;
+}
+tr:hover {background-color: coral;}
+
+body {
+   background-image: url("media/images/order-page.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+ 
+}
+  </style>  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css\mystyle.css">
+<title>Restaurant</title>
+
+</head>
+<body onload="sessionfun();orderTable();buttonHide()">
+
+	<div id="head-container">
+		<nav>
+			<a href="index"><img src="media\logos\logo1.png" class="webpage-logo"></a>
+			<ul>
+				<li><a class="manu-item" href="index">Home</a></li>
+				<li><a  class="manu-item" href="foodmenu">Food Menu</a></li>
+				<li><a  class="manu-item" href="order">Order</a></li>
+				<li><a  class="manu-item" href="about">About Us</a></li>
+				<li id="sessionLI"></li>
+			</ul>
+		</nav>	
+			
+	
+	</div>
+
+	<div class="orderTable" >
+
+
+<table width="100%">
+
+				<thead>
+							<h1 align="center">Order</h1>
+					<tr>
+						<th>Order</th>
+						<th>time</th>
+						<th>total</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="order: ${order}">
+						<td th:text="${order.orderList}" />
+						<td th:text="${order.date}" />
+						<td th:text="${order.totatprice}" />
+					
+						<td class="statusth" th:text="${order.status}" />
+		
+						<td>
+					
+							<a  class="cancelorder" th:href="@{/cancelOrder(order=${order.orderid})}">Cancel</a>
+					
+						
+						</td>
+				
+						<td>
+					
+							<a class="doneorder" th:href="@{/done(order=${order.orderid})}"> Order Received</a>
+					
+							
+						</td>
+							
+					</tr>
+
+				</tbody>
+				
+			</table>
+
+
+<br>
+<br>
+<br>
+<h1 align="center">Recent Order History</h1>
+
+<table width="100%" >
+			
+				<thead>
+					<tr>
+						<th>Order</th>
+						<th>time</th>
+						<th>total</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="olderorder: ${olderorder}">
+						<td th:text="${olderorder.orderList}" />
+						<td th:text="${olderorder.date}" />
+						<td th:text="${olderorder.totatprice}" />
+						<td th:text="${olderorder.status}" />
+						
+							
+					</tr>
+				</tbody>
+				
+			</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+<h1 id="tablestatus" th:text="${message}"></h1> 
+
+</body>
+<script type="text/javascript" src="js/myscript.js">
+
+
+</script>
+
+</html>`

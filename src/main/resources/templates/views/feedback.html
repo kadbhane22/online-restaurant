@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css\mystyle.css">
+
+<style>
+body {
+   background-image: url("media/images/order-page.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+ 
+}
+</style>
+</head>
+
+
+<body>
+<div>
+<h1 align="center">FeedBack</h1>
+
+<br>
+<br>
+
+  <form method="Post" action="feedback">
+  <center>  
+  
+  <h2 a><!--Order Id :--></h2><h2 th:text="${orderid}"></h2><br>
+  <br>
+     
+  <h2><!--User--></h2><h2 th:text="${username}"></h2>
+      <br>
+  <br>
+      
+        
+ <label>Rate The Order</label>&nbsp;
+<input type="number" min="1" max="5" placeholder="Rate 1-5" name="rating" required><br><br>
+
+<br>
+<textarea rows="10" cols="60" name="feedtext"></textarea>
+
+<br>
+<br>
+<input type="submit" value="Send Feedback">
+
+</center>
+
+</form>
+
+
+</div>
+</body>
+</html>

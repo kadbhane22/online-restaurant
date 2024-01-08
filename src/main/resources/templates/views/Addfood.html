@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>PixelTrice</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css\mystyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  
+<style>
+  .center {
+  margin-left: auto;
+  margin-right: auto;
+}
+th, td {
+  padding: 15px;
+}
+body {
+  background-image: url("media/images/order-page.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+ 
+}
+</style>
+</head>
+<body >
+<br><br>
+<h1 class="text-center">Add Food</h1><br><br>
+
+		<!-- form -->
+		<form id="form">
+				
+				
+				
+				
+				<table class="center">
+					  
+					  <!-- -->
+					  <tr>
+					    <td><label class="col-form-label">Id</label></td>
+					    <td><input type="number" class="form-control" placeholder="Product Id" id="id" name="id" required="required"></td>
+					  </tr>
+					  
+					  <tr>
+					    <td><label class="col-form-label">Name</label></td>
+					    <td><input type="text" class="form-control" placeholder="Product Name" id="name" name="name" required="required"></td>
+					  </tr>
+					  
+					  <tr>
+					    <td><label class="col-form-label">food category</label></td>
+					    <td><input class="form-control" placeholder="food category" id="description"  name="description" required="required"></td>
+					  </tr>
+					  
+					  <tr>
+					    <td><label class="col-form-label">Image</label></td>
+					    <td><input type="file" class="form-control" placeholder="" name="image" id="image" required="required"></td>
+					  </tr>
+					  
+					  
+					  <tr>
+					    <td><label class="col-form-label">Price</label></td>
+					    <td><input type="text" class="form-control" placeholder="Price" name="price" id="price" required="required"></td>
+					  </tr>
+					  
+					  
+				</table>
+				<br>
+				 <div class="text-center">
+				  <input style="width: 20%; "type="button" id="submit" class="btn btn-primary form-control" value="Submit">
+				</div>
+				
+				
+				
+							
+							
+					<!-- 		<a href="showfood" style="float:left;" class="btn btn-success text-right">Show All</a> -->
+		
+			</form>
+	
+
+<p class="text-center">
+
+</p>
+	<script   type="text/javascript" src="js/product.js"></script>
+</body>
+</html>

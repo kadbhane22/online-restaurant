@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style >
+.container {    
+  border-radius: 5px;    
+  background-color: #f2f2f2;    
+  padding: 20px;    
+}  
+  
+  table{border-collapse: collapse;
+  }
+  th, td {
+  padding: 15px;
+  text-align: left;
+}
+tr:hover {background-color: coral;}
+  </style> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css\mystyle.css">
+<title>Name Of Restaurant.</title>
+</head>
+<body>
+<a href="admin">Go To Dashboard</a>
+<div class="adminordercontainer">
+<h1 align="center">Daily Order</h1>
+<hr>
+<form action="reportbyday" method="post"><label>Date :</label>
+<input type="text" placeholder="Date" name="date"><input type="submit" value="Find" >
+</form>
+<br>
+<br>
+<table width="100%" >
+
+			
+				<thead>
+					<tr>
+					
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="OlderOrderTable: ${OlderOrderTable}">
+						<td th:text="${OlderOrderTable.username}"/>
+						<td th:text="${OlderOrderTable.totatprice}"/>
+						<td  th:text="${OlderOrderTable.orderList}"/>
+					
+						<td th:text="${OlderOrderTable.date}"/>
+					</tr>
+				</tbody>
+				
+			</table>
+	<br>
+	<br>
+	<br>
+
+
+
+</div>
+</body>
+
+</html>

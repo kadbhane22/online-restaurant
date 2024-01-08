@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css\mystyle2.css">
+</head>
+<body onload="sessionfun()">
+<div class="head-conatiner">
+<nav>
+			<a href="index"><img src="media\logos\right-arrow.png" class="webpage-logo"></a>
+			<ul>
+				<li><a class="manu-item" href="index">Home</a></li>
+				<li><a  class="manu-item" href="foodmenu">Food Menu</a></li>
+				<li><a  class="manu-item" id="cart" href="order">Order</a></li>
+				<li><a  class="manu-item" href="#">About Us</a></li>
+				<li id="sessionLI"></li>
+			</ul>
+
+		</nav>	
+
+</div>
+<div class="body-conatiner-food">
+<div class="menu-title" >
+<hr>
+<ul id="manu-title-name"><li id="manu-title-li"><h2 id="manu-title-h2" onclick="showBreakfast()" >BreakFast</h2></h2></li>
+<li id="manu-title-li"><h2 id="manu-title-h2" onclick="showVeg()" >Veg</h2></h2></li>
+</ul>
+</div>
+<div class="manu-card-conatiner">
+
+<div class="container">
+        <div class="articles" id="tablebreakfast">
+          <table class="tableclass" cellspacing="10" >
+         <tbody >
+          	    
+          <tr th:each = "food, hh : ${food}" th:with="count=0" > 	          
+          <div>
+                <img th:src="@{${'http://localhost:9090/showfood/'+ food.foodItem}}">
+                <div class="prod">
+                    <h3 class="tit" id="food1" th:text="${food.foodItem}"></h3>
+                    <h4 id="price1" th:text="${food.price}"></h4>
+                    <h4>Rs</h4>
+                </div>
+                <br>
+                <div class="inputs">
+                    <input type="number" th:id="'quantity'+${food.id}" th:name="'quantity'+${food.id}" min="1" max="99" value="1">
+        
+                    <div>
+                        <button class="addTo" onclick="add(1)">Add</button>
+                    </div>
+                </div>
+ 
+            </div>	
+     				
+     					
+     		</tr>
+           
+        </tbody>
+          </table>
+  
+
+    </div>
+    
+
+  
+
+    </div>   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   <!-- card start --> 
+
+        <div class="cart" >
+        <hr>
+            <h3 class="tit">My Cart</h3>
+            <!-- list of the articles in the cart -->
+            <ul id="items">
+            </ul> 
+            <h3 id="total" style="text-align: right;">Total: 0 Rs</h3>
+        </div>
+
+</div>
+
+<div class="footer-conatiner">
+	<center>
+	<a id="order"  onclick="foodorder()">Order</a>
+	
+	</center>
+</div>
+
+
+</body>
+<script type="text/javascript" src="js/myscript.js"></script>
+</html>

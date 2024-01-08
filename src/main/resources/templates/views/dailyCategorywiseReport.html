@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style >
+.container {    
+  border-radius: 5px;    
+  background-color: #f2f2f2;    
+  padding: 20px;    
+}  
+  
+  table{border-collapse: collapse;
+  }
+  th, td {
+  padding: 15px;
+  text-align: left;
+}
+tr:hover {background-color: coral;}
+  </style>  
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body class="container" onload="todayHide()">
+    <div class="container">
+        <div class="row">
+            <h1 >Todays Orders CategoryWise</h1>
+
+     <table width="100%" class=>
+			
+				<thead>
+					<tr>
+						<th>BreakFast</th>
+						<th>Veg</th>
+						<th>NonVeg</th>
+						<th>Bakery</th>
+						<th>Juice</th>
+						<th>Italian</th>
+						<th>Continental</th>
+					</tr>
+				</thead>
+				<tbody>
+							<tr th:each="ConfirmOrders:${ConfirmOrders}">
+							<td th:text="${ConfirmOrders.breakfast}" />
+						<td th:text="${ConfirmOrders.veg}" />
+						<td th:text="${ConfirmOrders.nonveg}" />
+						<td th:text="${ConfirmOrders.bakery}" />
+						<td th:text="${ConfirmOrders.juices}" />
+						<td th:text="${ConfirmOrders.italian}" />
+						<td th:text="${ConfirmOrders.continental}" />
+					</tr>
+				</tbody>
+				
+			</table>
+        </div>
+
+    </div>
+</body>
+<script type="text/javascript" src="js/myscript.js"></script>
+</html>

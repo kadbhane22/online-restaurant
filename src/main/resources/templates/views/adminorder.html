@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css\mystyle.css">
+<title>Restaurant</title>
+</head>
+<body>
+<a href="admin">Got To Dashboard</a>
+<div class="adminordercontainer">
+<h1 align="center">Order</h1>
+<hr>
+<table width="100%" >
+			
+				<thead>
+					<tr>
+						<th>Order</th>
+						<th>user</th>
+						<th>time</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="order: ${order}">
+						<td th:text="${order.orderList}" />
+						<td th:text="${order.username}" />
+						<td th:text="${order.date}" />
+					  <!--   <td th:text="${order.ordermap}" />  -->
+						<td>
+							<a th:href="@{/declineOrder(order=${order.orderid})}">Cancel</a>
+							
+							
+						</td>
+							<td>
+							<a th:href="@{/acceptOrder(orderlist=${order.orderList},username=${order.username},date=${order.date},ordid=${order.orderid})}">Accept</a>
+							
+	 						
+						</td>
+					</tr>
+				</tbody>
+				
+			</table>
+	<br>
+	<br>
+	<br>
+	<h1 align="center">Recent Requested Recipe</h1>
+<hr>
+<br>
+<br>
+<table width="100%" class = "table">
+			
+				<thead>
+					<tr>
+						<th>Name of Item</th>
+						<th>Category</th>
+						<th>Description</th>
+						<th>Igredients </th>
+						<th>Steps</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="trrecept" th:each="recipe: ${recipe}">
+						<td th:text="${recipe.NameOfItem}" />
+						<td th:text="${recipe.Category}" />
+						<td th:text="${recipe.description}" />
+						<td th:text="${recipe.Ingredients }" />
+						<td th:text="${recipe.steps}" />
+					</tr>
+				</tbody>
+				
+			</table>
+
+</div>
+</body>
+
+</html>

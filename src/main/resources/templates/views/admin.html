@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<link rel="stylesheet" type="text/css" href="css\mystyle.css">
+<style type="text/css">
+		*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+body{
+	background-color: orange;
+
+}
+
+#heade
+{
+	margin-top: 1px;
+	flex: initial;
+	display: block;
+	background-color: white;
+	height: 100px;
+	width: 100%;
+	opacity: 0.6;
+}
+#logoa
+{
+	margin-left: 80px;
+}
+
+#logoimg
+{	
+	height: 90px;
+}
+
+#adminlogo
+{
+	float: right;
+	text-align: center;
+	margin-top: 20px;
+	margin-right: 150px;
+}
+.side-bar
+{
+	display: block;
+	background-color: navy;
+	height: 85.5vh;
+	width: 350px;
+	float: left;
+	margin-left: -10px;
+	border-radius: 10px;
+	margin-top: -20px;
+}
+.inside-box
+{
+	display: block;
+	height: 610px;
+	width: 1050px;
+	background-color: skyblue;
+	margin-top: 20px;
+	margin-left: 370px;
+	border-radius: 60px;
+}
+.side-bar a h3
+{
+	color: white;
+	font-size: 40px;
+}
+
+
+.sidebar-item
+{
+	margin-top: 50px;
+	
+	text-align: left;
+	margin-left: 30px;
+	
+	width: 200px;
+	box-shadow: 5px 5px 8px blue, 10px 10px 8px red, 15px 15px 8px green;
+	color: white;
+
+}
+
+
+</style>
+<body>
+<div id="heade">
+	<a id="logoa"><img id="logoimg" src="media\logos\right-arrow.png"></a>
+	
+	<h1 id="adminlogo"><a href="adminlogout">Log-out</a></h1>
+
+</div>
+<div id="body">
+<div class="side-bar">
+	<center><a><h3>Dashboard</h3></a>
+		<h3 class="sidebar-item">Home</h3>
+		<h3  class="sidebar-item" ><a class="sidebar-item"href="adminorder">Order</a></h3>
+		<h3  class="sidebar-item"  ><a class="sidebar-item"href="Addfood">Add Food</a></h3>
+		<h3  class="sidebar-item" ><a class="sidebar-item"color="white" href="reports">Reports</a></h3>
+			<h3  class="sidebar-item" ><a class="sidebar-item"color="white" href="reportBydate">ReportsByDate</a></h3>
+		<h3 class="sidebar-item" ><a class="sidebar-item"color="white" href="dailyCategorywiseReport">DailyReports</a></h3>
+		<h3  class="sidebar-item" ><a class="sidebar-item" color="white" href="topthree">Top Three Items</a></h3>
+
+	</center>
+
+</div>
+	<div class="inside-box">
+		
+		<center>
+		<h1>Notification:</h1>
+		<br>
+	
+		</h2><h2  th:text="${message}"></h2>
+		</center>
+	</div>
+
+
+
+<div id="footer">
+	
+</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<head>
+ <style >
+.container {    
+  border-radius: 5px;    
+  background-color: #f2f2f2;    
+  padding: 20px;    
+}  
+  
+  table{border-collapse: collapse;
+  }
+  th, td {
+  padding: 15px;
+  text-align: left;
+}
+tr:hover {background-color: coral;}
+  </style>
+    <!-- bgcolor="#cbfc07" align="center" border="1" -->
+    <style>
+
+        *{box-sizing: border-box;}
+        html,body{margin: 0;padding: 0;}
+        .container{
+            margin: 10px 50px;
+        }
+        .formgroup{
+            margin: 10px;
+        }
+        input{
+            width: 100%;
+            border: solid 1px #eee;
+            padding: 15px 10px;
+        }
+        button{
+            width: 200px;
+            border: solid 1px;
+            margin-left: 250px;
+            padding: 15px ;
+            color: rgb(14, 104, 104);
+            background: white;
+        }
+        button:hover{
+            background: dodgerblue;
+            color: blanchedalmond;
+        }
+    
+    </style>
+ <link rel="stylesheet" type="text/css" href="css\mystyle.css">
+</head>
+<body onload="sessionfun()">
+	
+	
+	<div id="head-container">
+		<nav>
+			<!--<a href="index"><img src="media\logos\right-arrow.png" class="webpage-logo"></a> -->
+			<a href="index.html"><img src="media/logos/logo1.png" class="webpage-logo"></a>
+			
+			<ul>
+				<li><a class="manu-item" href="index">Home</a></li>
+				<li><a  class="manu-item" href="foodmenu">Food Menu</a></li>
+				<li><a  class="manu-item" href="order">Order</a></li>
+				<li><a  class="manu-item" href="about">About Us</a></li>
+				<li id="sessionLI"></li>
+			</ul>
+
+		</nav>	
+			
+	
+	</div>
+
+<div class="container">
+    <h2>Add Your Recipe Here</h2>
+    <form id="myform" action="/save" method="post">
+    <div class="formgroup">
+      Category:  <input type="text" name="Category" id="Category" placeholder="Category" required/>
+    </div>
+    <div class="formgroup">
+        Name Of Item:<input type="text" name="NameOfItem" id="Item" placeholder="Name Of Item" required/>
+    </div>
+    <div class="formgroup">
+        Discription:         <input type="text" name="description" id="Discription" placeholder="Discription" required/>
+    </div>
+    <div class="formgroup">
+        Ingridients:   <input type="text" name="Ingredients" id="Ingridients" placeholder="Ingridients" required/>
+    </div>
+    <div class="formgroup">
+        Steps:   <input type="text" name="steps" id="Steps" placeholder="Steps" required/>
+    </div>
+    <input type="submit" name="Submit" value="AddRecipe">
+
+    </form>
+
+</div>
+<br>
+<br>
+<h1 align="center">Recent Requested Recipe</h1>
+<hr>
+<br>
+<br>
+<table width="100%" class = "table">
+			
+				<thead>
+					<tr>
+						<th>Name of Item</th>
+						<th>Category</th>
+						<th>Description</th>
+						<th>Ingredients </th>
+						<th>Steps</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="trrecept" th:each="recipe: ${recipe}">
+						<td th:text="${recipe.NameOfItem}" />
+						<td th:text="${recipe.Category}" />
+						<td th:text="${recipe.description}" />
+						<td th:text="${recipe.Ingredients }" />
+						<td th:text="${recipe.steps}" />
+					</tr>
+				</tbody>
+				
+			</table>
+</body>
+<script type="text/javascript" src="js/myscript.js">
+
+
+</script>
+</html>
+

@@ -1,0 +1,109 @@
+
+
+
+
+@Query("SELECT * FROM `ordertable` WHERE `username`='n' ORDER by `orderid` DESC LIMIT 1" )
+
+
+//------------------------
+
+function ordersession(div)
+{
+	if(sessionStorage.getItem("user")!=null)
+{
+	sessionStorage.setItem(sessionStorage.getItem("user"),div)
+	
+	
+	
+}
+}
+
+
+function ordersessiondisplay()
+{
+	
+		if(sessionStorage.getItem("user")!=null && sessionStorage.getItem("user").match(sessionStorage.user) )
+{
+	document.querySelector(".orderTable").innerHTML=sessionStorage.getItem(sessionStorage.getItem("user"));
+	document.getElementsByClassName('tit')[0].style.display='none';
+}
+	
+
+else
+{
+	alert("Please Login To see Order");
+	document.querySelector(".orderTable").innerHTML='<h2>Please Login To see Order.</h2>';
+}
+	
+}
+function removebutton()
+{
+	for(let i=0;i<document.getElementsByClassName('remove').length;i++)
+  {
+    document.getElementsByClassName('remove')[i].style.display='none';
+  }
+}
+
+//-------------------------------------------------------foodmanu
+function manuhide()
+{
+	if(document.body.contains(document.getElementById('tablebreakfast')))
+	{
+		document.getElementById('tablebreakfast').style.display="none";
+		document.getElementById('tableVeg').style.display="none";
+			let g=document.getElementsByClassName("veg");
+		for(var i = 0; i < g.length; i++){
+    g[i].style.display="none";   // Change the content
+    }
+    
+    	let k=document.getElementsByClassName("breakfast");
+		for(var i = 0; i < k.length; i++){
+    k[i].style.display="none";   // Change the content
+    }
+    
+	}
+	
+}
+manuhide();
+function showBreakfast()
+{
+	document.getElementById('tablebreakfast').style.display="block";
+	document.getElementById('tableVeg').style.display="none";
+	let k=document.getElementsByClassName("breakfast");
+		for(var i = 0; i < k.length; i++){
+    k[i].style.display="block";   // Change the content
+    }
+    
+    let g=document.getElementsByClassName("veg");
+		for(var i = 0; i < g.length; i++){
+    g[i].style.display="none";   // Change the content
+    }
+}
+function showVeg()
+{
+	
+
+    	let k=document.getElementsByClassName("breakfast");
+		for(var i = 0; i < k.length; i++){
+    k[i].style.display="none";   // Change the content
+    }
+			let g=document.getElementsByClassName("veg");
+		for(var i = 0; i < g.length; i++){
+    g[i].style.display="block";   // Change the content
+    }
+
+
+}
+
+function showcartITem()
+{
+	if(sessionStorage.getItem("user")==null)
+	{
+		
+		y=document.getElementsByClassName("cartitem");
+		for(var i = 0; i < y.length; i++){
+    y[i].style.display="none";   // Change the content
+    }
+		
+	}
+}

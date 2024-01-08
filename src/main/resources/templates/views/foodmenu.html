@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="ISO-8859-1">
+<title>FoodItem</title>
+<link rel="stylesheet" type="text/css" href="css\mystyle2.css">
+<!-- -->
+		<style>
+		
+		body {
+		  /* background-image: url("media/images/light-background.jpg"); */
+		  background-color: white;
+		  background-repeat: no-repeat;
+		  background-attachment: fixed;
+		  background-size: cover;
+		 
+		}
+		
+		</style>
+<!-- head-conatiner  -->
+
+</head>
+<body onload="sessionfun()">
+<!-- head-conatiner  -->
+<div class="navbar" >
+	<nav>
+			<a href="index"><img src="media\logos\logo1.png" class="webpage-logo"></a>
+			<ul>
+				<li><a class="manu-item" href="index">Home</a></li>
+				<li><a  class="manu-item" href="foodmenu">Food Menu</a></li>
+				<li><a  class="manu-item" id="cart" href="order">Order</a></li>
+				<li><a  class="manu-item" href="about">About Us</a></li>
+				<li id="sessionLI"></li>
+			</ul>
+
+	</nav>	
+
+</div>
+<div class="body-conatiner-food">
+		<div class="menu-title" >
+	
+				<ul id="manu-title-name">
+					<li class="manu-title-li"><h2 id="all">Show All</h2></h2></li>
+					<li class="manu-title-li"><h2 id="breakfast" >BreakFast</h2></h2></li>
+					<li class="manu-title-li"><h2 id="veg"  >Veg</h2></h2></li>
+					<li class="manu-title-li"><h2 id="nonveg" >Non-Veg</h2></h2></li>
+					<li class="manu-title-li"><h2 id="juices">Juices</h2></h2></li>
+					<li class="manu-title-li"><h2 id="bakery" >Bakery</h2></h2></li>
+					<li class="manu-title-li"><h2 id="italian" >Italian</h2></h2></li>
+					<li class="manu-title-li"><h2 id="continental">Continental</h2></h2></li>
+					
+					<li><a  class="manu-item" href="addRecipe">Add Recipe</a></li>
+					
+					<!--
+					<li>
+					<button><a style="width: 20%; " class="manu-item" href="addRecipe" style="text-decoration:none;">Add  Recipe</a></button>
+					
+					</li>
+				-->
+				
+				</ul>
+		</div>
+<div class="manu-card-conatiner">
+
+
+<div id="foodshowtable" >
+	
+	 <h1 align="center" class="showmenu-btn" onclick="foodshowtable()" style="font-size:50px; margin-top: 180px"><em>Show Menu</em></h1>
+	
+
+
+</div>
+<div class="container">
+        <div class="articles" id="tablebreakfast">
+          <table class="tableclass" cellspacing="10">
+                  <tbody >
+          	    
+          <tr th:each = "food, hh : ${food}" th:with="count=0" > 	          
+          <div th:class="${food.categories}">
+                <img th:id="${food.foodItem}" th:src="@{${'http://localhost:9090/showfood/'+ food.foodItem}}">
+                <div class="prod">
+                    <h3 class="tit" th:id="'food'+${food.id}" th:text="${food.foodItem}"></h3>
+                    <h4>Rs.&nbsp;</h4>
+                    <h4 th:id="'price'+${food.id}"th:text="${food.price}"></h4>
+                    
+                </div>
+                <br>
+                <div class="inputs">
+                    <input type="number" th:id="'quantity'+${food.id}" th:name="'quantity'+${food.id}" min="1" max="99" value="1">
+        
+                    <div  >
+                        <button  class="addTo"  th:onclick="'add('+${food.id}+')'">Add</button>
+                    </div>
+                </div>
+ 
+            </div>	
+     				
+     					
+     		</tr>
+           
+        </tbody>
+           
+      
+          </table>
+  
+
+    </div>
+    
+    <!-- veg div -->
+
+    
+         <div class="articles" id="tableVeg">
+          
+  
+
+    </div>   
+  
+    
+   <!-- card start --> 
+
+    <div class="cart" >
+        	<hr>
+          	  <h3 class="tit">My Cart</h3>
+          	  <!-- list of the articles in the cart -->
+              <ul id="items">
+              </ul> 
+              <h3 id="total" style="text-align: right;">Total: 0 Rs</h3>
+        </div>
+
+	</div>
+
+	<div class="footer-conatiner">
+		<center >
+		<a id="order"  onclick="foodorder()">Order</a><br><br><br>
+	
+		</center>
+	</div>
+
+
+</body>
+
+<script type="text/javascript" src="js/myscript.js"></script>
+<script type="text/javascript" src="js/food.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+</script>
+<script >
+$("#breakfast").click( function()
+		{
+	$(".veg").hide();
+	$(".nonveg").hide();
+	$(".juices").hide();
+	$(".bakery").hide();
+	$(".italian").hide();
+	$(".continental").hide();
+	$(".Continental").hide();
+	$(".breakfast").show();
+		});
+		
+$("#veg").click( function()
+		{
+	$(".veg").show();
+	$(".nonveg").hide();
+	$(".juices").hide();
+	$(".bakery").hide();
+	$(".italian").hide();
+	$(".continental").hide();
+	$(".Continental").hide();
+	$(".breakfast").hide();
+	
+		});
+		
+
+$("#nonveg").click( function()
+		{
+	$(".veg").hide();
+	$(".nonveg").show();
+	$(".juices").hide();
+	$(".bakery").hide();
+	$(".italian").hide();
+	$(".continental").hide();
+	$(".Continental").hide();
+	$(".breakfast").hide();
+		});
+		
+$("#juices").click( function()
+		{
+	$(".veg").hide();
+	$(".nonveg").hide();
+	$(".juices").show();
+	$(".bakery").hide();
+	$(".italian").hide();
+	$(".continental").hide();
+	$(".Continental").hide();
+	$(".breakfast").hide();
+	
+		});
+		
+$("#bakery").click( function()
+		{
+	$(".veg").hide();
+	$(".nonveg").hide();
+	$(".juices").hide();
+	$(".bakery").show();
+	$(".italian").hide();
+	$(".continental").hide();
+	$(".Continental").hide();
+	$(".breakfast").hide();
+	
+		});
+		
+
+$("#italian").click( function()
+		{
+	$(".veg").hide();
+	$(".nonveg").hide();
+	$(".juices").hide();
+	$(".bakery").hide();
+	$(".italian").show();
+	$(".continental").hide();
+	$(".Continental").hide();
+	$(".breakfast").hide();
+		});
+		
+$("#continental").click( function()
+		{
+	$(".veg").hide();
+	$(".nonveg").hide();
+	$(".juices").hide();
+	$(".bakery").hide();
+	$(".italian").hide();
+	$(".continental").show();
+	$(".Continental").show();
+	$(".breakfast").hide();
+	
+		});
+$("#all").click( function()
+		{
+	$(".veg").show();
+	$(".nonveg").show();
+	$(".juices").show();
+	$(".bakery").show();
+	$(".italian").show();
+	$(".continental").show();
+	$(".Continental").show();
+	$(".breakfast").show();
+	
+		});	
+
+</script>
+</html>
